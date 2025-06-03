@@ -3,20 +3,19 @@ import { SearchIcon } from "lucide-react"
 
 export default function Header() {
   return (
-    <div className="flex items-center p-2 px-6 shadow-md">
+    <div className="flex items-center p-2 px-10 shadow-sm relative z-20">
       {/* 3 horizontal lines (hamburger menu) */}
-      <div className="mr-4" style={{ display: "flex", flexDirection: "column", justifyContent: "center", gap: "4px" }}>
-        <div style={{ width: "24px", height: "3px", background: "#333" }} />
-        <div style={{ width: "24px", height: "3px", background: "#333" }} />
-        <div style={{ width: "24px", height: "3px", background: "#333" }} />
+      <div className="mr-8 flex flex-col justify-center gap-1">
+        <div className="w-9 h-1 bg-gray-600 rounded-full" />
+        <div className="w-9 h-1 bg-gray-600 rounded-full" />
+        <div className="w-9 h-1 bg-gray-600 rounded-full" />
       </div>
       {/* LinkedIn Icon */}
       <Image 
         className="rounded-xs"
-        // src="https://links.papareact.com/b3z"
         src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg"
-        width={34.17}
-        height={34.17}
+        width={48}
+        height={48}
         alt="LinkedIn Logo"
       />
       {/* Search Bar */}
@@ -47,12 +46,12 @@ export default function Header() {
           </p>
           <Image
             src="https://www.svgrepo.com/show/61705/down-arrow.svg"
-            width={12}
-            height={12}
+            width={10}
+            height={10}
             alt="Down Arrow Icon"
           />
         </div>
       </div>
     </div>
   );
-}   
+}

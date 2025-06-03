@@ -1,9 +1,21 @@
-import Image from "next/image";
+import NavigationBar from "@/components/ui/NavigationBar"
+import Feed from "@/components/ui/Feed"
+import Post from "@/components/ui/Post"
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      LinkedIn Redesign
+    <div className="flex">
+      {/* Navigation Bar */}
+      <section className="w-60 flex-shrink-0">
+        <NavigationBar />
+      </section>
+      <section className="flex flex-1 justify-center items-start pt-12"> 
+        <Post />
+      </section>
+      {/* Feed */}
+      <section>
+        <Feed />
+      </section>
     </div>
-  );
+  )
 }
