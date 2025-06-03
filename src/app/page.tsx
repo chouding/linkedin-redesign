@@ -1,21 +1,17 @@
 import NavigationBar from "@/components/ui/NavigationBar"
-import Feed from "@/components/ui/Feed"
 import Post from "@/components/ui/Post"
 
 export default function Home() {
   return (
-    <div className="flex">
-      {/* Navigation Bar */}
+    <div className="flex h-screen">
       <section className="w-60 flex-shrink-0">
         <NavigationBar />
       </section>
-      <section className="flex flex-1 justify-center items-start pt-12"> 
-        <Post />
-      </section>
-      {/* Feed */}
-      <section>
-        <Feed />
-      </section>
+      <div className="flex-1 flex flex-col items-center overflow-y-auto h-screen hide-scrollbar bg-linkedin-background p-12">
+        <section className="flex justify-center items-start w-full max-w-6xl mx-auto"> 
+          <Post />
+        </section>
+      </div>
     </div>
   )
 }
