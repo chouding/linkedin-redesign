@@ -56,7 +56,7 @@ export default function NavigationBar({ minimized = false }: { minimized?: boole
           </div>
           <div className="flex justify-between text-sm font-semibold text-gray-700">
             <span>Connections</span>
-            <span className="text-blue-400">457</span>
+            <span className="text-blue-400">2</span>
           </div>
           <div className="flex justify-between text-sm font-semibold text-gray-700">
             <span>Post impressions</span>
@@ -69,8 +69,8 @@ export default function NavigationBar({ minimized = false }: { minimized?: boole
       )}
       <hr className="border-t border-gray-600 self-center w-[calc(100%+32px)] my-2" />
       <div className={`flex flex-col ${minimized ? "items-center" : "items-start"} space-y-8 mt-4`}>
-        <NavItem icon={<AiFillHome size={48} color="#0A66C2" />} label={minimized ? "" : "Home"} />
-        <NavItem icon={<MdPeopleAlt size={48} color="#666" />} label={minimized ? "" : "My Network"} />
+        <NavItem icon={<AiFillHome size={48} color="#666" />} label={minimized ? "" : "Home"} href="/" />
+        <NavItem icon={<MdPeopleAlt size={48} color="#666" />} label={minimized ? "" : "My Network"}  href="/network" />
         <NavItem icon={<BsBriefcaseFill size={48} color="#666" />} label={minimized ? "" : "Jobs"} />
         <NavItem icon={<AiFillMessage size={48} color="#666" />} label={minimized ? "" : "Messages"} />
         <NavItem icon={<AiFillBell size={48} color="#666" />} label={minimized ? "" : "Notifications"} />
@@ -81,8 +81,8 @@ export default function NavigationBar({ minimized = false }: { minimized?: boole
   );
 }
 
-function NavItem({ icon, label }: { icon: React.ReactNode; label: string }) {
-  return (
+function NavItem({ icon, label, href }: { icon: React.ReactNode; label: string, href?: string }) {
+  const content = (
     <div className="flex items-center cursor-pointer group gap-2">
       {icon}
       {label && (
@@ -92,4 +92,5 @@ function NavItem({ icon, label }: { icon: React.ReactNode; label: string }) {
       )}
     </div>
   );
+  return href ? <Link href={href}>{content}</Link> : content;
 }

@@ -40,9 +40,9 @@ let initialPosts: PostType[] = [
   },
     {
     id: 2,
-    content: "🚀 Just wrapped up one of the most exciting projects of my software engineering journey!/nOver the past few months, I’ve been working on designing and building a scalable backend system that now supports     ...more",
+    content: "🚀 Just wrapped up one of the most exciting projects of my software engineering journey!\nOver the past few months, I’ve been working on designing and building a scalable backend system that now supports     ...more",
     author: "Thea Smith",
-    avatar: "/ExampleProfile2.jpg",
+    avatar: "/ExampleProfile3.jpg",
     picture: "/ExamplePostContent2.jpg",
     mutual: "Natalie Do",
     title: "Software Engineer",
@@ -56,6 +56,14 @@ let initialPosts: PostType[] = [
 export default function Post() {
   const [content, setContent] = useState("");
   const [posts, setPosts] = useState<PostType[]>(initialPosts);
+  const [showFilterPanel, setShowFilterPanel] = useState(false);
+  const [filters, setFilters] = useState({
+    byFollowed: false,
+    byConnections: false,
+    reacted: false,
+    commented: false,
+    reposted: false,
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -130,12 +138,81 @@ export default function Post() {
           </button>
         </div>
       </form>
-      <div className="flex items-center w-full mt-6">
+      <div className="flex items-center w-full mt-6 relative">
         <hr className="flex-grow border-t border-gray-600" />
-        <button className="flex items-center ml-4 px-4 py-1 border border-black text-black rounded-full">
-          Filters
+        <button
+          className="flex items-center ml-4 px-4 py-1 border border-black text-black rounded-full"
+          onClick={() => setShowFilterPanel((v) => !v)}
+          type="button"
+        >
+          Filter
           <IoFilterSharp className="ml-2" size={20} />
         </button>
+        {showFilterPanel && (
+          <div className="absolute right-0 top-12 z-50 bg-white border border-gray-300 rounded-lg shadow-lg p-4 w-80">
+            <div className="font-bold text-xl mb-1">
+              Show only:
+            </div>
+            <div className="flex flex-col gap-2">
+              <label className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  checked={filters.byFollowed}
+                  onChange={e => setFilters(f => ({ ...f, byFollowed: e.target.checked }))}
+                />
+                Posts by people you follow
+              </label>
+              <label className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  checked={filters.byConnections}
+                  onChange={e => setFilters(f => ({ ...f, byConnections: e.target.checked }))}
+                />
+                Posts by connections
+              </label>
+              <label className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  checked={filters.reacted}
+                  onChange={e => setFilters(f => ({ ...f, reacted: e.target.checked }))}
+                />
+                Posts connections reacted to
+              </label>
+              <label className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  checked={filters.commented}
+                  onChange={e => setFilters(f => ({ ...f, commented: e.target.checked }))}
+                />
+                Posts connections commented on
+              </label>
+              <label className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  checked={filters.reposted}
+                  onChange={e => setFilters(f => ({ ...f, reposted: e.target.checked }))}
+                />
+                Posts connections reposted
+              </label>
+            </div>
+            <div className="flex justify-end gap-2 mt-4">
+              <button
+                className="px-4 py-1 rounded-full border-1 border-black hover:bg-gray-300"
+                onClick={() => setShowFilterPanel(false)}
+                type="button"
+              >
+                Cancel
+              </button>
+              <button
+                className="font-bold px-4 py-1 rounded-full bg-blue-600 text-white hover:bg-blue-700"
+                onClick={() => setShowFilterPanel(false)}
+                type="button"
+              >
+                Apply Filters
+              </button>
+            </div>
+          </div>
+        )}
       </div>
       {/* Posts Feed */}
       <div className="flex flex-col gap-6 mt-8">
@@ -162,13 +239,15 @@ export default function Post() {
             </div>
             <div className="mt-2 text-lg text-gray-800">{post.content}</div>
             {post.picture && (
-              <Image
-                src={post.picture}
-                width={1033}
-                height={426}
-                alt="Post Content"
-                className="object-contain w-full"
-              />)
+              <div className="-mx-6">
+                <Image
+                  src={post.picture}
+                  width={1033}
+                  height={426}
+                  alt="Post Content"
+                  className="object-contain w-full flex justify-center"
+                />
+              </div>)
             }
             <div className="flex items-center justify-between text-gray-500 text-sm mt-2 px-1">
               <div className="flex items-center gap-2">
