@@ -14,13 +14,48 @@ type PostType = {
   content: string;
   author: string;
   avatar: string;
+  picture?: string;
+  mutual?: string;
   title: string;
   createdAt: Date;
+  likes?: number;
+  comments?: number;
+  reposts?: number;
 };
+
+
+let initialPosts: PostType[] = [
+  {
+    id: 1,
+    content: "Hello! I’m so excited to share that I will be starting a new position at Southwest as a Product Designer! Thank you so much for everyone who helped me with this opportunity and I am so excited to learn and grow with my team!",
+    author: "Natalie Do",
+    avatar: "/ExampleProfile2.jpg",
+    picture: "/ExamplePostContent.png",
+    mutual: "Thea Smith",
+    title: "Product Designer",
+    createdAt: new Date("2023-10-01T12:00:00Z"),
+    likes: 48,
+    comments: 3,
+    reposts: 4,
+  },
+    {
+    id: 2,
+    content: "🚀 Just wrapped up one of the most exciting projects of my software engineering journey!/nOver the past few months, I’ve been working on designing and building a scalable backend system that now supports     ...more",
+    author: "Thea Smith",
+    avatar: "/ExampleProfile2.jpg",
+    picture: "/ExamplePostContent2.jpg",
+    mutual: "Natalie Do",
+    title: "Software Engineer",
+    createdAt: new Date("2023-09-01T12:00:00Z"),
+    likes: 8,
+    comments: 2,
+    reposts: 1,
+  }
+];
 
 export default function Post() {
   const [content, setContent] = useState("");
-  const [posts, setPosts] = useState<PostType[]>([]);
+  const [posts, setPosts] = useState<PostType[]>(initialPosts);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -126,6 +161,29 @@ export default function Post() {
               </div>
             </div>
             <div className="mt-2 text-lg text-gray-800">{post.content}</div>
+            {post.picture && (
+              <Image
+                src={post.picture}
+                width={1033}
+                height={426}
+                alt="Post Content"
+                className="object-contain w-full"
+              />)
+            }
+            <div className="flex items-center justify-between text-gray-500 text-sm mt-2 px-1">
+              <div className="flex items-center gap-2">
+                <Image
+                  src="/ExampleReactionsIcon.png"
+                  alt="Reactions"
+                  width={80}
+                  height={80}
+                />
+                <span>{post.mutual} and {post.likes ?? 0} others</span>
+              </div>
+              <div className="flex items-center gap-4">
+                <span>{post.comments ?? 0} comments | {post.reposts ?? 0} reposts</span>
+              </div>
+          </div>
             <hr className="flex-grow border-t border-gray-600" />
             <div className="flex items-center justify-around mt-4 w-full">
               <button className="flex items-center gap-2 text-black hover:text-blue-600">
