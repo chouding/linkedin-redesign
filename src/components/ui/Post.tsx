@@ -30,7 +30,7 @@ export default function Post() {
         id: Date.now(),
         content,
         author: "Mel Avera",
-        avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+        avatar: "/ExampleProfile.jpg",
         title: "Software Engineer",
         createdAt: new Date(),
       },
@@ -45,9 +45,9 @@ export default function Post() {
         onSubmit={handleSubmit}
         className="bg-white rounded-lg shadow p-6 flex flex-col gap-4 w-full mx-auto"
       >
-        <div className="flex items-center gap-3 p-4">
+        <div className="flex items-center gap-12 p-4">
           <Image
-            src="https://randomuser.me/api/portraits/men/32.jpg"
+            src="/ExampleProfile.jpg"
             width={80}
             height={80}
             alt="Profile"
@@ -65,7 +65,7 @@ export default function Post() {
             }}
           />
         </div>
-        <div className="flex w-full justify-between gap-4 text-blue-600 max-w-5xl px-12">
+        <div className="flex grow w-full justify-around text-blue-600">
           <button type="button" className="flex items-center gap-4 hover:bg-blue-50 rounded p-1">
             <Image
               src="/VideoIcon.png"

@@ -5,20 +5,23 @@ import { AiFillHome, AiFillBell, AiFillMessage } from "react-icons/ai";
 import { MdPeopleAlt } from "react-icons/md";
 import { BsBriefcaseFill } from "react-icons/bs";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
+import Link from "next/link";
 
 export default function NavigationBar({ minimized = false }: { minimized?: boolean }) {
   return (
     <nav className={`flex flex-col items-start bg-white h-screen shadow-md p-8 transition-all duration-300`}>
       {/* Profile section always visible */}
-      <div className={`flex items-center w-full ${minimized ? "gap-2" : "gap-2 justify-between"} mb-2`}>
+      <div className={`flex -ml-2 items-center w-full ${minimized ? "gap-7" : "gap-2 justify-between"} mb-2`}>
         <div className="flex items-center">
-          <Image
-            src="https://randomuser.me/api/portraits/men/32.jpg"
-            width={40}
-            height={40}
-            alt="Profile Picture"
-            className="rounded-full border-2 border-blue-500 flex-shrink-0"
-          />
+          <Link href="/profile" className="flex-shrink-0">
+            <Image
+              src="/ExampleProfile.jpg"
+              width={48}
+              height={48}
+              alt="Profile Picture"
+              className="rounded-full border-2 border-blue-500"
+            />
+          </Link>
         </div>
         <p
           className={`

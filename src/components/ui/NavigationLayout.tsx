@@ -17,7 +17,7 @@ export default function NavigationLayout({ children }: { children: React.ReactNo
           <NavigationBar minimized={!navbarOpen} />
         </section>
         <div className="flex-1 flex flex-col min-h-0">
-          <main className="flex-1 overflow-y-auto">{children}</main>
+          <main className="flex-1 overflow-y-auto hide-scrollbar">{children}</main>
         </div>
       </div>
     </>

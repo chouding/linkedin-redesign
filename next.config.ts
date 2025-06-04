@@ -6,8 +6,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       new URL('https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg'),
       new URL('https://cdn4.iconfinder.com/data/icons/finite-application/16/grid-9-1024.png'),
-      new URL('https://www.svgrepo.com/show/61705/down-arrow.svg'),
-      new URL('https://randomuser.me/api/portraits/men/32.jpg')
+      new URL('https://www.svgrepo.com/show/61705/down-arrow.svg')
     ],
   },
 };

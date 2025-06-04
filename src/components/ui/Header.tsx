@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import { SearchIcon } from "lucide-react";
+import Link from "next/link";
 
 export default function Header({ onHamburgerClick }: { onHamburgerClick: () => void }) {
   return (
     <div className="flex items-center p-2 px-10 shadow-sm relative z-20">
-      {/* Hamburger menu */}
       <button
         className="mr-8 flex flex-col justify-center gap-1"
         onClick={onHamburgerClick}
@@ -16,15 +16,15 @@ export default function Header({ onHamburgerClick }: { onHamburgerClick: () => v
         <div className="w-9 h-1 bg-gray-600 rounded-full" />
         <div className="w-9 h-1 bg-gray-600 rounded-full" />
       </button>
-      {/* ...rest of your header... */}
-      {/* LinkedIn Icon */}
-      <Image 
-        className="rounded-xs"
-        src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg"
-        width={48}
-        height={48}
-        alt="LinkedIn Logo"
-      />
+      <Link href="/">
+        <Image 
+          className="rounded-xs"
+          src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg"
+          width={48}
+          height={48}
+          alt="LinkedIn Logo"
+        />
+      </Link>
       {/* Search Bar */}
       <div className="flex-1 flex justify-center">
         <form className="flex items-center bg-gray-100 rounded-sm p-2 w-[200px] sm:w-[400px] gap-2">
