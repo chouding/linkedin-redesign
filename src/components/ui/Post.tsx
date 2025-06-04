@@ -4,6 +4,10 @@ import Image from "next/image";
 import { useState } from "react";
 import { IoFilterSharp } from "react-icons/io5";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
+import { AiOutlineLike } from "react-icons/ai";
+import { FaRegCommentDots } from "react-icons/fa";
+import { BiRepost } from "react-icons/bi";
+import { IoIosSend } from "react-icons/io";
 
 type PostType = {
   id: number;
@@ -122,6 +126,25 @@ export default function Post() {
               </div>
             </div>
             <div className="mt-2 text-lg text-gray-800">{post.content}</div>
+            <hr className="flex-grow border-t border-gray-600" />
+            <div className="flex items-center justify-around mt-4 w-full">
+              <button className="flex items-center gap-2 text-black hover:text-blue-600">
+                <AiOutlineLike size={32} className="scale-x-[-1]" />
+                <span className="hidden sm:inline">Like</span>
+              </button>
+              <button className="flex items-center gap-2 text-black hover:text-blue-600">
+                <FaRegCommentDots size={32} className="scale-x-[-1]"/>
+                <span className="hidden sm:inline">Comment</span>
+              </button>
+              <button className="flex items-center gap-2 text-black hover:text-blue-600">
+                <BiRepost size={40} />
+                <span className="hidden sm:inline">Repost</span>
+              </button>
+              <button className="flex items-center gap-2 text-black hover:text-blue-600">
+                <IoIosSend size={32} />
+                <span className="hidden sm:inline">Send</span>
+              </button>
+            </div>
           </div>
         ))}
       </div>

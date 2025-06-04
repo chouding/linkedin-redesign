@@ -1,15 +1,22 @@
-import Image from "next/image";
-import { SearchIcon } from "lucide-react"
+"use client";
 
-export default function Header() {
+import Image from "next/image";
+import { SearchIcon } from "lucide-react";
+
+export default function Header({ onHamburgerClick }: { onHamburgerClick: () => void }) {
   return (
     <div className="flex items-center p-2 px-10 shadow-sm relative z-20">
-      {/* 3 horizontal lines (hamburger menu) */}
-      <div className="mr-8 flex flex-col justify-center gap-1">
+      {/* Hamburger menu */}
+      <button
+        className="mr-8 flex flex-col justify-center gap-1"
+        onClick={onHamburgerClick}
+        aria-label="Toggle navigation"
+      >
         <div className="w-9 h-1 bg-gray-600 rounded-full" />
         <div className="w-9 h-1 bg-gray-600 rounded-full" />
         <div className="w-9 h-1 bg-gray-600 rounded-full" />
-      </div>
+      </button>
+      {/* ...rest of your header... */}
       {/* LinkedIn Icon */}
       <Image 
         className="rounded-xs"
