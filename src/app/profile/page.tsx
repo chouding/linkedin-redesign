@@ -33,7 +33,7 @@ export default function Profile() {
           <p className="text-2xl text-gray-500 mb-2">Product Designer</p>
           <p className="text-gray-500 mb-2">Irvine, California, United States</p>
           <p className="text-blue-500 mb-2 underline font-bold">https://melavera.com</p>
-          <p className="text-blue-500 mb-2 font-bold">457 Connections</p>
+          <p className="text-blue-500 mb-2 font-bold">2 Connections</p>
           {/* <div className="flex gap-4">
             <button className="px-6 py-2 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transition">Connect</button>
             <button className="px-6 py-2 border border-blue-600 text-blue-600 rounded-full font-semibold hover:bg-blue-50 transition">Message</button>

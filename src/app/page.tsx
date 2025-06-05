@@ -1,4 +1,5 @@
 import Post from "@/components/ui/Post"
+import Messages from "@/components/ui/Messages"
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
           <Post />
         </section>
       </div>
+      {/* <Messages /> */}
     </div>
   )
 }
