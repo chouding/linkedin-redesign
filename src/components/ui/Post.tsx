@@ -120,7 +120,7 @@ export default function Post() {
           </button>
           <button type="button" className="flex items-center gap-4 hover:bg-blue-50 rounded p-1">
             <Image
-              src="/Photoicon.png"
+              src="/PhotoIcon.png"
               alt="Photo"
               width={32}
               height={32}
